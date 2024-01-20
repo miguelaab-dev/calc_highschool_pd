@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://prd-gruposeb-escolasatualizadas.s3.amazonaws.com/prd-pueridomus/static/images/favicon.ico">
+    <title>Calculadora PD</title>
+</head>
+
+<body>
+    <header class="título">
+        <img src="" alt="">
+        <h1>CALCULADORA DE NOTA FINAL PUERI DOMUS</h1>
+        <span class="nome-aluno">Aluno: </span>
+    </header>
+    <main>
+        <section class="lado-direito">
+            <form class="disciplinas" action="">
+                <label for="disciplina"><strong>Selecione uma disciplina</strong></label>
+                <div class="custom-select">
+                    <select>
+                        <option value="">Escolha uma disciplina</option>
+                        <option value="">Português</option>
+                        <option value="">Matemática</option>
+                        <option value="">Inglês</option>
+                        <option value="">História</option>
+                        <option value="">Geografia</option>
+                        <option value="">Química</option>
+                        <option value="">Física</option>
+                        <option value="">Biologia</option>
+                        <option value="">Outra</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+        <section class="lado-esquerdo">
+            <div class="calculadora">
+                <div class="container-notas">
+                    <label class="label-nota" for="nota1">1&degS</label>
+                    <input type="number" name="nota-pv" id="nota1" placeholder="0" min="0" max="10">
+                </div>
+                <div class="container-notas">
+                    <label class="label-nota" for="nota2">2&degS</label>
+                    <input type="number" name="nota-pc" id="nota2" placeholder="0" min="0" max="10">
+                </div>
+            </div>
+            <button onclick="somar()">CALCULAR!</button>
+            <div id="res" class="resultado">
+                Resultado
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3 id="msg">Vamos checar a média?</h3>
+    </footer>
+
+    <script>
+        var nome = prompt('Qual seu nome completo...?')
+        var nome_aluno = document.querySelector('span.nome-aluno')
+        nome_aluno.innerHTML = 'Aluno(a): ' + nome 
+    </script>
+
+    <script>
+        function somar() {
+            var nota1 = document.getElementById('nota1')
+            var nota2 = document.getElementById('nota2')
+            var res = document.getElementById('res')
+            var nota1n = Number(nota1.value)
+            var nota2n = Number(nota2.value)
+            var s = ((nota1n * 2) + (nota2n *3))/5
+
+            res.innerHTML = `Sua média final é ${s.toFixed(2)}`
+        }
+    </script>
+
+    <script>
+        var msg = document.getElementById('msg')
+    </script>
+
+</html>
